@@ -36,9 +36,9 @@ class _MyBottomNavbarState extends State<MyBottomNavbar> {
             label: 'Counter 1',
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.punch_clock), label: 'Counter 2'),
+              icon: Icon(Icons.watch_outlined), label: 'Counter 2'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.punch_clock), label: 'Counter 3'),
+              icon: Icon(Icons.watch_later), label: 'Counter 3'),
         ]);
   }
 }
