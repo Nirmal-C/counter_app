@@ -1,4 +1,6 @@
+import 'package:counter_app/main.dart';
 import 'package:flutter/material.dart';
+import 'package:counter_app/home.dart';
 
 class MyBottomNavbar extends StatefulWidget {
   const MyBottomNavbar({Key? key}) : super(key: key);
@@ -8,21 +10,18 @@ class MyBottomNavbar extends StatefulWidget {
 }
 
 class _MyBottomNavbarState extends State<MyBottomNavbar> {
-  int selectedIndex = 0;
-
-  void onItemTapped(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
         unselectedFontSize: 15,
         selectedFontSize: 20,
         currentIndex: selectedIndex,
-        onTap: onItemTapped,
+        onTap: (int index) {
+          setState(() {
+            selectedIndex = index;
+          });
+          streamController.add(index);
+        },
         iconSize: 38,
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.green,
