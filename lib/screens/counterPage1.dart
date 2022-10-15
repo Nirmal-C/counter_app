@@ -10,19 +10,27 @@ class CounterPage1 extends StatefulWidget {
 
 class _CounterPage1State extends State<CounterPage1> {
   int _countervalue = 0;
+  void _incrementCounter() {
+    setState(() {
+      _countervalue++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: _incrementCounter,
+          backgroundColor: Colors.green,
+          child: const Icon(Icons.add),
+        ),
         body: Container(
             child: Container(
-      child: Counter(
-          count: _countervalue,
-          onIncremented: () {
-            setState(() {
-              _countervalue++;
-            });
-          }),
-    )));
+          child: Counter(
+              count: _countervalue,
+              onIncremented: () {
+                _incrementCounter();
+              }),
+        )));
   }
 }
