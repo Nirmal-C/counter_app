@@ -17,15 +17,25 @@ class Counter extends StatelessWidget {
         child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Text("$count"),
-        const SizedBox(height: 10),
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-          onPressed: () {
-            onIncremented();
-          },
-          child: const Text("Increment me!"),
+        Text(
+          "$count",
+          style: Theme.of(context).textTheme.headline4,
         ),
+        const SizedBox(height: 20),
+        SizedBox(
+          height: 40,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                elevation: 3,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20))),
+            onPressed: () {
+              onIncremented();
+            },
+            child: const Text("Increment me!"),
+          ),
+        )
       ],
     ));
   }
